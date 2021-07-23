@@ -1,0 +1,35 @@
+***********************************SEARCHING FOR DATA IN MONGODB***********************************
+
+
+1.db.items.find({rating:4.5})(This query is used to find the documents having rating as 4.5)
+Here "{ratings:4.5}" is termed as filter object.
+2.{$gte:4.5} - this query means greater than eaqual to 4.5
+db.items.find({rating:{$gte:4.5}})
+This query wil return all the objects having rating greater than or equal to 4.5.
+3.{$gt:3.5} - this query means greater than 3.5
+db.items.find({rating:{$gt:3.5}})
+This query will return all the objects having rating greater than 3.5
+4.AND OPERATION
+db.items.find({rating:{$gt:3.5}, price:{$gt: 4000}})
+This will return the objects having rating greater than 3.5 and price greater than 4000
+If both the query is true then only it will return the objects.
+5.{$lt:5.0}//less than 5.0
+db.items.find({rating:{$lt:5.0}})
+This will return the objects having rating less than 5.0
+{$lte:4.5}//less than equal to 4.5
+6.OR OPERATION
+db.items.find({$or:[{rating:{$gt:3.5}}, {price:{$gt: 5000}} ]})
+This query will return objects having rating greater than 3.5 or price greater than 5000
+Either of the query is true it will return the objects satisfying the given condition 
+7.PROJECTION
+Selecting only the necessary data rather than selecting whole of the data of a document.Suppose a document has
+5 fields and you need to show only 3,then select only 3 from them.
+Following are the ways you can do so -:
+a)db.items.find({rating:{$lt:4.9}}, {rating:1})
+  This means only rating field will be displayed whose rating is less than 4.9
+  Here rating:1 means only rating field will be true rest of the fields will be false
+b)db.items.find({rating:{$lt:4.9}}, {rating:0})
+  This means all the fields will be displayed except rating whose rating is less than 4.9
+  here rating:0 means only rating field will be false rest of the field will be true
+c)db.items.find({rating:{$lt:4.9}}, {rating:1,qty:1})
+  This means only "rating" and "qty" field will be displayed whose rating is less than 4.9

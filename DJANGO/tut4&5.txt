@@ -1,0 +1,46 @@
+############################# OUR FIRST DJANGO WEBSITE ################################
+1)created a folder named TEXTUTILS
+2)cd TEXTUTILS
+3)django-admin startproject textutils(created a file named "textutils" in the folder "TEXTUTILS")
+4)created a sub-file in "textutils" named "views.py" 
+"TUT5"
+5)In "TEXTUTILS" folder enter that folder which contains "manage.py" file by using cd command.
+6)then type "python manage.py runserver" command
+
+7)***************Now go to "views.py" file and write the following code***********************
+     
+     #This file has been created by Abhinav Kashyap.
+     from django.http import HttpResponse
+     def index(request):
+         return HttpResponse("<h1>WELCOME TO MY FIRST WEBPAGE</h1>")
+     def about(request):
+         return HttpResponse("About DJANGO COURSE")
+     def read_file(request):     #adding the contents of 'TEXTUTILS.txt' file
+         f=open('TEXTUTILS.txt','r')
+         file_content = f.read()
+         f.close()
+         return HttpResponse(file_content)
+
+
+ 
+8)***********Now go to "urls.py" of "TEXTUTILS" folder and make the following changes*********
+   a)Original content of "urls.py" before making any changes-:
+
+     from django.contrib import admin
+     from django.urls import path
+
+     urlpatterns = [
+         path('admin/', admin.site.urls),
+     ]
+   b)After making some changes in the "urls.py"
+     
+     from django.contrib import admin
+     from django.urls import path
+     from . import views 
+
+     urlpatterns = [
+         path('admin/', admin.site.urls),
+         path('', views.index, name='index'),
+         path('about/', views.about, name='about'),
+         path(r'txtcontent/', views.read_file, name='TXTcontent'),   ##calling of 'read_file' function from views.py
+     ]

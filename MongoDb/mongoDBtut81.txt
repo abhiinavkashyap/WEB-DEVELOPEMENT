@@ -1,0 +1,19 @@
+1. open poweshell and type <mongod> enter//right click on the windows icon and select powershell
+2. open another powershell and type <mongo> enter
+
+*******************************INSERTING DATA IN MONGO DB*********************************
+
+//(type all these commands in windows powershell where you have typed <mongo> command)
+1.use abhinav 
+2.db.items.insertOne({name:"Apple 30s", price:22000, rating:4.5, qty:233, sold:98})(here "items" is a collection name)
+//created a collection named "items" in which we have inserted documents.
+//documents (name, price, rating, qty, sold)
+3.db.items.insertMany({name:"Vivo 30s", price:22000, rating:4.5, qty:233, sold:98},
+{name:"moto 30s", price:12000, rating:3.5, qty:233, sold:98}) //insertion of multiple documents
+4.db.items.find()//this query displays your documents
+5.show dbs(it displays all the databases)
+note-:to paste in powershell just do the right click
+6.show collection(This command displays all collection present in a database)
+7.to stop the process type ^c in both the powershell 
+8.mongodb gives us ObjectId to avoid duplication of data
+

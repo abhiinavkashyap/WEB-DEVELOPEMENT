@@ -1,0 +1,11 @@
+########################## HOW TO CREATE A SIMPLE DJANGO PROJECT ? #######################################
+
+
+STEP 1)cd DJANGO(type this command in terminal or powershell to
+       enter the DJANGO folder)
+STEP 2)django-admin startproject tut2 (type this command in powershell to create a file
+       named "tut2" in django folder)
+STEP 3)enter the "tut2" file using "cd tut2" command
+STEP 4)python manage.py runserver(type this command either in command prompt/powershell/
+       terminal and then it will start my django website)
+STEP 5)python manage.py migrate(run this command to apply the migrations)

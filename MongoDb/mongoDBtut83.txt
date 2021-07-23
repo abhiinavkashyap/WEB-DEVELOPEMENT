@@ -1,0 +1,10 @@
+************************DELETING DATA FROM MONGODB********************
+1)db.items.deleteOne({rating:4.5})// deleteOne will delete the matching document entry and
+will delete the first entry in case of multi document match.
+2)db.items.deleteMany({rating:4.5})// deleteMany will delete the matching document entry and 
+will delete all of the entry in case of multi document match.
+
+
+**NOTE-: All the queries or filter objects we have used in searching data are applicable in 
+         the deletion of data also.
+          
